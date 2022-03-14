@@ -1,4 +1,3 @@
-import React from 'react';
 import './TemplateName.style.scss';
 
 export const TemplateName = () => {
