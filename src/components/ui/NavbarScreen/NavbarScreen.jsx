@@ -1,4 +1,4 @@
-import './NavbarScreen.style.scss';
+import './NavbarScreen.style.css';
 
 export const NavbarScreen = () => {
 

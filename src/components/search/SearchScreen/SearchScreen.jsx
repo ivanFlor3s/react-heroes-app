@@ -1,4 +1,4 @@
-import './SearchScreen.style.scss';
+import './SearchScreen.style.css';
 
 export const SearchScreen = () => {
 

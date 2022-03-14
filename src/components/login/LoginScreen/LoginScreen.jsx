@@ -1,4 +1,4 @@
-import './LoginScreen.style.scss';
+import './LoginScreen.style.css';
 
 export const LoginScreen = () => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './DcScreen.style.scss';
+import './DcScreen.style.css';
 
 export const DcScreen = () => {
 

@@ -1,4 +1,4 @@
-import './MarvelScreen.style.scss';
+import './MarvelScreen.style.css';
 
 export const MarvelScreen = () => {
 
