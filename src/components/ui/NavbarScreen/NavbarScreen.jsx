@@ -1,53 +1,48 @@
-import './NavbarScreen.style.css';
+import { Link, NavLink } from "react-router-dom";
+import "./NavbarScreen.style.css";
 
 export const NavbarScreen = () => {
-
-
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-        
-        <Link 
-            className="navbar-brand" 
+      <Link
+            
+            className="nav-item nav-link"
+            
             to="/"
-        >
+          >
             Asociaciones
-        </Link>
+          </Link>
+      <div className="navbar-collapse">
+        <div className="navbar-nav">
+          <NavLink
+            
+            className={({isActive})=> `nav-item nav-link ${isActive && 'active'}`}
+            
+            to="/marvel"
+          >
+            Marvel
+          </NavLink>
 
-        <div className="navbar-collapse">
-            <div className="navbar-nav">
-
-                <NavLink 
-                    activeClassName="active"
-                    className="nav-item nav-link" 
-                    exact
-                    to="/marvel"
-                >
-                    Marvel
-                </NavLink>
-
-                <NavLink 
-                    activeClassName="active"
-                    className="nav-item nav-link" 
-                    exact
-                    to="/dc"
-                >
-                    DC
-                </NavLink>
-            </div>
+          <NavLink
+            
+            className={({isActive})=> `nav-item nav-link ${isActive && 'active'}`}
+            
+            to="/dc"
+          >
+            DC
+          </NavLink>
         </div>
+      </div>
 
-        <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul className="navbar-nav ml-auto">
-                <NavLink 
-                    activeClassName="active"
-                    className="nav-item nav-link" 
-                    exact
-                    to="/login"
-                >
-                    Logout
-                </NavLink>
-            </ul>
-        </div>
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul className="navbar-nav ml-auto">
+          <button
+            className="nav-item nav-link btn btn-secondary"
+          >
+            Logout
+          </button>
+        </ul>
+      </div>
     </nav>
-)
+  );
 };

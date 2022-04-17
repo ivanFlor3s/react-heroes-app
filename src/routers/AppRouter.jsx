@@ -4,10 +4,11 @@ import { LoginScreen } from "../components/login/LoginScreen/LoginScreen";
 import { MarvelScreen } from "../components/marvel/MarvelScreen/MarvelScreen";
 import { SearchScreen } from "../components/search/SearchScreen/SearchScreen";
 import { BrowserRouter } from "react-router-dom";
+import { NavbarScreen } from "../components/ui/NavbarScreen/NavbarScreen";
 export const AppRouter = () => {
   return (
     <BrowserRouter>
-      <h1>Welcome to react router!</h1>
+      <NavbarScreen></NavbarScreen>
       <Routes>
         <Route path="/" element={<MarvelScreen />} />
         <Route path="/marvel" element={<MarvelScreen />} />
