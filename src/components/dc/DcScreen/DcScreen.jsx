@@ -1,12 +1,13 @@
-import React from 'react';
 import './DcScreen.style.css';
-
+import {HeroList} from '../../../container/HeroList'
 export const DcScreen = () => {
 
 
   return (
     <>
-      <p>DcScreen component working :D </p>
+      <h1>DC Screen</h1>
+      
+      <HeroList publisher='DC Comics'></HeroList>
     </>
   )
 };
