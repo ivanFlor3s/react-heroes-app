@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../../helpers/getHeroById";
 import "./Hero.style.css";
@@ -6,11 +7,16 @@ export const HeroScreen = () => {
   //Hook para recuperar el param :id
   const { id } = useParams();
 
+
   //Navigate para volver atras
   const navigate = useNavigate();
   
-  //Consigo info heroe
-  const hero = getHeroById(id);
+  //Consigo info heroe y lo guardo con useMemo
+  const hero = useMemo(()=>{
+   return getHeroById(id);
+  },[id]) 
+
+
   if (!hero) {
     return <Navigate to="/"></Navigate>;
   }
@@ -18,6 +24,7 @@ export const HeroScreen = () => {
   const handleReturn = () => {
     //Vuelvo atras
     navigate(-1);
+    
   };
 
   return (
