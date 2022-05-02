@@ -1,7 +1,10 @@
 import "./SearchScreen.style.css";
 import { useForm } from "../../../hooks/useForm";
+import { getHeroesByName } from "../../../helpers/gerHeroesByName";
+import { HeroCard } from "../../Hero/HeroCard";
 
 export const SearchScreen = () => {
+  
   
 
   const [formValues, handleInputChange] = useForm({
@@ -9,6 +12,8 @@ export const SearchScreen = () => {
   });
 
   const {searchText} = formValues
+
+  const heroesFiltrados = getHeroesByName('Algo')
 
   const handleSearch = (event) => {
     event.preventDefault()
@@ -37,6 +42,18 @@ export const SearchScreen = () => {
               Buscar...
             </button>
           </form>
+        </div>
+        <div className="col-7">
+          <h4>Resultados</h4>
+          <hr />
+          <div className="list-scrollable">
+          {
+            heroesFiltrados.map(hero => {
+              return <HeroCard key={hero.id} {...hero}></HeroCard>
+            })
+          }
+
+          </div>
         </div>
       </div>
     </>
