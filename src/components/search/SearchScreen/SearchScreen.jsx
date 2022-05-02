@@ -1,11 +1,44 @@
-import './SearchScreen.style.css';
+import "./SearchScreen.style.css";
+import { useForm } from "../../../hooks/useForm";
 
 export const SearchScreen = () => {
+  
 
+  const [formValues, handleInputChange] = useForm({
+    searchText: "",
+  });
+
+  const {searchText} = formValues
+
+  const handleSearch = (event) => {
+    event.preventDefault()
+    console.log(searchText)
+  };
 
   return (
     <>
-      <p>SearchScreen component working :D </p>
+      <h1>Busquedas</h1>
+      <hr />
+      <div className="row">
+        <div className="col-5">
+          <h4>Buscar</h4>
+          <hr />
+          <form onSubmit={handleSearch}>
+            <input
+              type="text"
+              placeholder="Buscar un heroe"
+              className=" form-control"
+              name="searchText"
+              autoComplete="off"
+              value={searchText}
+              onChange = {handleInputChange}
+            />
+            <button className="btn btn-outline-primary mt-2" type="submit">
+              Buscar...
+            </button>
+          </form>
+        </div>
+      </div>
     </>
-  )
+  );
 };
