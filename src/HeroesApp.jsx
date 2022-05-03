@@ -6,7 +6,7 @@ import {useReducer} from 'react'
 export const HeroesApp = () => {
 
   const init = ()=>{
-    return { nombre: 'Ivan temp', logged: true}
+    return JSON.parse(localStorage.getItem('user')) || {logged: false}
   }
 
   const [user, dispatch] = useReducer(authReducer, {}, init)
