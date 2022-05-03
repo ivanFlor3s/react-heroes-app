@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../auth/authContext";
+
 import "./NavbarScreen.style.css";
 
 export const NavbarScreen = () => {
   
   const navigate = useNavigate()
+  const {user} = useContext(AuthContext)
 
   const handleLogout = ()=>{
     navigate('/login',{
@@ -52,8 +56,11 @@ export const NavbarScreen = () => {
         </div>
       </div>
 
-      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2" style={{justifyContent:'end', marginRight:'20px'}}>
         <ul className="navbar-nav ml-auto">
+          <span className="text-info" style={{margin:'auto 20px'}}>
+            {user.nombre}
+          </span>
           <button
             onClick={handleLogout}
             className="nav-item nav-link btn btn-secondary"
