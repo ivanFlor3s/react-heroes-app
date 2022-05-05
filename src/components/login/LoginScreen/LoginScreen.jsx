@@ -22,7 +22,16 @@ export const LoginScreen = () => {
 
     dispatch(action)
    
-    navigate('/marvel',{
+    const lastLocation = JSON.parse(localStorage.getItem('lastLocation'))
+    let lastPath ='/marvel'
+
+    if(lastLocation.pathname){
+      lastPath = lastLocation.pathname
+    }
+    if(lastLocation.search){
+      lastPath = `${lastPath}${lastLocation.search}`
+    }
+    navigate(lastPath,{
       //Remplazar la historia para no volver al login despues de entrar
       replace: true
     })
