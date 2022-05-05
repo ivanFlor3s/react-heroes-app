@@ -8,8 +8,9 @@ export const NavbarScreen = () => {
   
   const navigate = useNavigate()
   const {user} = useContext(AuthContext)
-
+  console.log(user)
   const handleLogout = ()=>{
+
     navigate('/login',{
       replace: true
     })
@@ -59,7 +60,7 @@ export const NavbarScreen = () => {
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2" style={{justifyContent:'end', marginRight:'20px'}}>
         <ul className="navbar-nav ml-auto">
           <span className="text-info" style={{margin:'auto 20px'}}>
-            {user.nombre}
+            {user.name}
           </span>
           <button
             onClick={handleLogout}

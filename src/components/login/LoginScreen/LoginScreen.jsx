@@ -1,14 +1,28 @@
 import './LoginScreen.style.css';
 
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../auth/authContext';
+import { types } from '../../../types/types';
 
 export const LoginScreen = () => {
+
+  const {dispatch, user}= useContext(AuthContext)
 
   //Funcion con la que puedo navegar a otra pantalla
   const navigate = useNavigate()
   const handleLogin = ()=> {
-    console.log('handle login')
-    navigate('marvel',{
+
+    const action = {
+      type: types.login,
+      payload: {
+        name:'Ivan'
+      }
+    }
+
+    dispatch(action)
+   
+    navigate('/marvel',{
       //Remplazar la historia para no volver al login despues de entrar
       replace: true
     })
