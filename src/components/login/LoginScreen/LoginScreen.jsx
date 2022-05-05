@@ -7,7 +7,7 @@ import { types } from '../../../types/types';
 
 export const LoginScreen = () => {
 
-  const {dispatch, user}= useContext(AuthContext)
+  const {dispatch}= useContext(AuthContext)
 
   //Funcion con la que puedo navegar a otra pantalla
   const navigate = useNavigate()

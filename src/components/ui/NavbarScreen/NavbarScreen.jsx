@@ -1,19 +1,29 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../auth/authContext";
+import { types } from "../../../types/types";
 
 import "./NavbarScreen.style.css";
 
 export const NavbarScreen = () => {
   
   const navigate = useNavigate()
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const {user, dispatch} = useContext(AuthContext)
+
+
   const handleLogout = ()=>{
+
+    const action = {
+      type: types.logout,
+      payload: {logged: false}
+    }
+
+    dispatch(action)
 
     navigate('/login',{
       replace: true
     })
+
   }
 
   return (
