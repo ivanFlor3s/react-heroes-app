@@ -3,6 +3,8 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../../helpers/getHeroById";
 import "./Hero.style.css";
 
+const heroeImages = require.context('../../assets',true)
+
 export const HeroScreen = () => {
   //Hook para recuperar el param :id
   const { id } = useParams();
@@ -31,7 +33,7 @@ export const HeroScreen = () => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          src={`/assets/${hero.id}.jpg`}
+          src={ heroeImages(`./${hero.id}.jpg`)}
           alt={id}
           className="img-thumbnail animate__animated animate__fadeInLeft"
         />

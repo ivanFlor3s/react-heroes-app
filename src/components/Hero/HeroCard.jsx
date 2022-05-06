@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+//https://webpack.js.org/guides/dependency-management/#requirecontext
+const heroeImages = require.context('../../assets',true)
+
 
 export const HeroCard = ({
   id,
@@ -8,13 +11,12 @@ export const HeroCard = ({
   first_appearance,
   characters,
 }) => {
-  const pathImage = `/assets/${id}.jpg`;
   return (
     <div className="col animate__animated animate__fadeInRight">
       <div className="card">
         <div className="row no-gutters">
           <div className="col-md-4">
-            <img src={pathImage} className="card-img-top" alt="{id}" />
+            <img src={heroeImages(`./${id}.jpg`)} className="card-img-top" alt="{id}" />
           </div>
           <div className="col-md-8">
             <div className="card-body">
